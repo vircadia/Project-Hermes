@@ -1,6 +1,9 @@
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({ port: 8090 });
+const args = process.argv.slice(2);
+var wsPort = args[0];
+
+const wss = new WebSocket.Server({ port: wsPort });
 
 wss.on('connection', function connection(ws) {
   ws.isAlive = true;
